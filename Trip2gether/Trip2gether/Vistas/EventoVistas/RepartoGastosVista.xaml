@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trip2gether.Vistas.EventoVistas.RepartoGastosVista">
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" 
+                   Text="Reparto de gastos" FontSize="30" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   BackgroundColor="#FFBD59" />
+            <ListView x:Name="ListaPagos" RowHeight="50"
+                      Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="0" ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" 
+                                       Text="{Binding Pagador.Nombre}" FontAttributes="Bold"
+                                       HorizontalTextAlignment="Start" 
+                                       VerticalTextAlignment="Center"/>
+                                <Label Grid.Row="0" Grid.Column="1" 
+                                       Text=" paga a " 
+                                       HorizontalTextAlignment="Start" 
+                                       VerticalTextAlignment="Center"/>
+                                <Label Grid.Row="0" Grid.Column="2" 
+                                       Text="{Binding Recibidor.Nombre}" FontAttributes="Bold"
+                                       HorizontalTextAlignment="Start" 
+                                       VerticalTextAlignment="Center"/>
+                                <Label Grid.Row="0" Grid.Column="3" 
+                                       Text="{Binding Cuantia}" FontAttributes="Bold"
+                                       HorizontalTextAlignment="Start" 
+                                       VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"
+                   Text="Eliminar gastos" BackgroundColor="#C4E6F2" Clicked="EliminarGastosClicked"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Trip2gether.Componente"
+             x:Class="Trip2gether.Vistas.EventoDatosVista"
+             Title="{Binding Titulo}">
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="20"/>                            
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" 
+                   Text="Principal" FontSize="30" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   BackgroundColor="#FFBD59" />
+            <Label Grid.Row="1" Grid.Column="1" 
+                   Text="Inicio: "
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="Center"/>
+            <local:MyDatePicker x:Name="EntryFechaInicio" FontSize="20"
+                    Grid.Row="1" Grid.Column="2" 
+                    Format="dd/MM/yyyy" PlaceHolder="--/--/----"></local:MyDatePicker>
+            <Label Grid.Row="1" Grid.Column="3" 
+                   Text="Fin: "
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="Center"/>
+            <local:MyDatePicker x:Name="EntryFechaFin" FontSize="20"
+                    Grid.Row="1" Grid.Column="4" 
+                    Format="dd/MM/yyyy" PlaceHolder="--/--/----"></local:MyDatePicker>
+            <Label Grid.Row="2" Grid.Column="1"  
+                   Text="Destino: "
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="Center"/>
+            <Entry Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" 
+                   x:Name="EntryDestino" FontSize="20"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+            <Label Grid.Row="3" Grid.Column="1"  
+                   Text="Alojamiento: " 
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="Center"/>
+            <Entry Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" 
+                   x:Name="EntryAlojamiento" FontSize="20"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+            <Label Grid.Row="4" Grid.Column="1"  
+                   Text="Participantes: "
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="Center"/>
+            <ListView x:Name="ListaUsuarios" RowHeight="50"
+                      Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="0" ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="30"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="user_icon.png" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                                         WidthRequest="50" HeightRequest="50" />
+                                <Label Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" 
+                                       Text="{Binding Nombre}" 
+                                       HorizontalTextAlignment="Start" 
+                                       VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Grid.Row="7" Grid.Column="1"  
+                   Text="Clave: "
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="Center"/>
+            <Entry Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="3" 
+                   x:Name="EntryClave" FontSize="20"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+            <Grid RowSpacing="0" ColumnSpacing="4" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ModificarButton" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" 
+                        Text="Modificar" Clicked="ModificarClicked" BackgroundColor="#C4E6F2" />
+                <Button x:Name="CancelarButton" Grid.Row="1" Grid.Column="1" 
+                        Text="Cancelar" IsVisible="false" Clicked="CancelarClicked" BackgroundColor="#FA9995" />
+                <Button x:Name="GuardarButton" Grid.Row="1" Grid.Column="2" 
+                        Text="Guardar" IsVisible="false" Clicked="GuardarClicked" BackgroundColor="#B7FACC" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

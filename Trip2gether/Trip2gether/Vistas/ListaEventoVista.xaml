@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trip2gether.Vistas.ListaEventoVista">
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" 
+                   Text="Lista de eventos" FontSize="30" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   BackgroundColor="#FFBD59" />
+            <ListView x:Name="ListaEventos" RowHeight="70"
+                      Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="0" ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="10"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="30"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Trip2gether_logo.png" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"
+                                         WidthRequest="50" HeightRequest="50" />
+                                <Label Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" 
+                                       Text="{Binding Nombre}" FontAttributes="Bold" FontSize="20"
+                                       HorizontalTextAlignment="Start" 
+                                       VerticalTextAlignment="Center"/>
+                                <Label Grid.Row="2" Grid.Column="3"
+                                       Text="{Binding Destino}" FontSize="14"
+                                       HorizontalTextAlignment="Start" 
+                                       VerticalTextAlignment="Center"/>
+                                <Label Grid.Row="2" Grid.Column="4"
+                                       Text="{Binding FechaInicio, StringFormat='{0:dd/MM/yyyy}'}" FontSize="14"
+                                       HorizontalTextAlignment="End" 
+                                       VerticalTextAlignment="Center" />
+                                <Button Grid.Row="1" Grid.Column="5" Grid.RowSpan="2"
+                                        ImageSource="trash_30px.png" BackgroundColor="Transparent" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" 
+                    Text="Nuevo evento" Clicked="NuevoEventoClicked" BackgroundColor="#C4E6F2" />
+            <Label Grid.Row="6" Grid.Column="1"
+                   Text="Añadir evento existente" 
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"/>
+            <Entry x:Name="EntryNombre" Grid.Row="7" Grid.Column="1"
+                Placeholder="Nombre evento"/>
+            <Entry x:Name="EntryPassword" Grid.Row="8" Grid.Column="1"
+                Placeholder="Clave evento"/>
+            <Button Grid.Row="7" Grid.Column="2" 
+                    Grid.RowSpan="2" Grid.ColumnSpan="2" 
+                    ImageSource="plus_30px.png" BackgroundColor="#FFBD59"
+                    WidthRequest="80" HeightRequest="80" CornerRadius="40"
+                    Clicked="AddEventoClicked"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

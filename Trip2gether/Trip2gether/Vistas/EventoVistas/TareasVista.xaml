@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trip2gether.Vistas.TareasVista">
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" 
+                   Text="Tareas" FontSize="30" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   BackgroundColor="#FFBD59" />
+            <ListView x:Name="ListaTareas" RowHeight="100"
+                      Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
+                      SelectionMode="None" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="0" ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="30"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Row="1" Grid.Column="0"
+                                          IsChecked="{Binding Seleccionado}"
+                                          CheckedChanged="SeleccionadoChanged" BindingContext="{Binding .}" />
+                                <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" 
+                                       Text="{Binding Usuario.Nombre}" 
+                                       HorizontalTextAlignment="End" 
+                                       VerticalTextAlignment="Center"/>
+                                <Label Grid.Row="1" Grid.Column="1" 
+                                       Text="{Binding Titulo}" FontAttributes="Bold"
+                                       HorizontalTextAlignment="Start" 
+                                       VerticalTextAlignment="Center"/>
+                                <Label Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                                       Text="{Binding Descripcion}"
+                                       HorizontalTextAlignment="Start"/>
+                                <Button Grid.Row="2" Grid.Column="4" Grid.RowSpan="2" 
+                                        ImageSource="trash_30px.png" BackgroundColor="Transparent"
+                                        Clicked="EliminarClicked" CommandParameter="{Binding ID}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Grid.Row="4" Grid.Column="1"
+                   Text="Nueva tarea" 
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"/>
+            <Entry x:Name="EntryTitulo" Grid.Row="5" Grid.Column="1"
+                Placeholder="Título" />
+            <Entry x:Name="EntryDescripcion" Grid.Row="6" Grid.Column="1"
+                Placeholder="Descripción"/>
+            <Button Grid.Row="5" Grid.Column="2" 
+                    Grid.RowSpan="2" Grid.ColumnSpan="2" 
+                    ImageSource="plus_30px.png" BackgroundColor="#FFBD59"
+                    WidthRequest="80" HeightRequest="80" CornerRadius="40"
+                    Clicked="AddTareaClicked" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

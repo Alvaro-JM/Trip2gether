@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trip2gether.Vistas.CompraVista">
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" 
+                   Text="Lista de la compra" FontSize="30" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   BackgroundColor="#FFBD59" />
+            <ListView x:Name="ListaCompra" RowHeight="50"
+                      Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="0" ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="30"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Row="1" Grid.Column="0"
+                                          IsChecked="{Binding Seleccionado}" CheckedChanged="SeleccionadoChanged" BindingContext="{Binding .}" />
+                                <Label Grid.Row="1" Grid.Column="1" 
+                                       Text="{Binding Nombre}"
+                                       HorizontalTextAlignment="Start" 
+                                       VerticalTextAlignment="Center"/>
+                                <Button Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" 
+                                        ImageSource="trash_30px.png" BackgroundColor="Transparent"
+                                        Clicked="EliminarClicked" CommandParameter="{Binding ID}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Grid.Row="5" Grid.Column="1"
+                   Text="Nuevo artículo" 
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"/>
+            <Entry Grid.Row="6" Grid.Column="1"
+                Placeholder="Nombre artículo" x:Name="EntryNombre"/>
+            <Button Grid.Row="5" Grid.Column="2" 
+                    Grid.RowSpan="2" Grid.ColumnSpan="2" 
+                    ImageSource="plus_30px.png" BackgroundColor="#FFBD59"
+                    WidthRequest="80" HeightRequest="80" CornerRadius="40"
+                    Clicked="AddArticuloClicked" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trip2gether.Vistas.PerfilVista">
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" 
+                   Text="Perfil" FontSize="30" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   BackgroundColor="#FFBD59" />
+            <Image x:Name="ImagenPerfil" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+            <Label Grid.Row="3" Grid.Column="1" Text="Nombre" FontSize="16" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+            <Entry x:Name="UserName" Grid.Row="3" Grid.Column="3" VerticalTextAlignment="Center" />
+            <Label Grid.Row="5" Grid.Column="1" Text="Mail" FontSize="16" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
+            <Entry x:Name="UserMail" Grid.Row="5" Grid.Column="3" FontSize="20" VerticalTextAlignment="Center" />
+            <Label Grid.Row="7" Grid.Column="1" Text="Password" FontSize="16" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
+            <Entry x:Name="UserPassword" Grid.Row="7" Grid.Column="3" FontSize="20" VerticalTextAlignment="Center" />
+            <Grid RowSpacing="0" ColumnSpacing="4" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ModificarButton" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" 
+                        Text="Modificar" Clicked="ModificarClicked" BackgroundColor="#C4E6F2" />
+                <Button x:Name="CancelarButton" Grid.Row="1" Grid.Column="1" 
+                        Text="Cancelar" IsVisible="false" Clicked="CancelarClicked" BackgroundColor="#FA9995" />
+                <Button x:Name="GuardarButton" Grid.Row="1" Grid.Column="2" 
+                        Text="Guardar" IsVisible="false" Clicked="GuardarClicked" BackgroundColor="#B7FACC" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
